@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">BeverageWarehouse</string>
+    <string name="app_name">Beverage-Warehouse</string>
+    <string name="alcohol_title_label">Alcohol</string>
 </resources>

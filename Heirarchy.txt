@@ -1,0 +1,44 @@
+AlcoholicBeverage (aka crime)
+    - getters and setters for everything (basic skeleton)
+    - price
+    - description
+    - alcType (make it an enum)
+    - alcContent
+    - manufacturerOrigin
+
+AlcoholBeverageActivity (aka crimeActivity)
+    - createFragment
+
+AlcoholBeverageFragment (aka crimeFragment)
+    - AlcoholicBeverage Fragment
+    - onCreate
+    - onCreateView
+
+
+AlcoholWareHouse (aka crimeLab)
+   - arraylist of alcoholic beverages
+   - AlcoholWarehouse get
+   - AlcoholWareHouse
+   - get AlcoholBeverages
+   - get AlcoholicBeverage
+
+
+AlcoholWareHouseActivity (aka crimeListActivity)
+    - createFragment
+
+AlcoholWareHouseFragment (aka crimeListFragment)
+    -onCreateView
+    -updateUI
+    -beverageHolder (class)
+    -beverageHolder (constructor)
+    -bindBeverage
+    -onClick
+    -alcBeverageAdapter (class)
+    -alcBeverageAdapter (constructor)
+    -onCreateViewHolder
+    -getItemCount
+
+SingleFragmentActivity
+    - onCreate
+
+
