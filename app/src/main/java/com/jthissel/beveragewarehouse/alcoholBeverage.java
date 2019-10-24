@@ -5,6 +5,7 @@ import java.util.UUID;
 public class alcoholBeverage {
 
     protected enum alcType{
+        NONE,
         IPA,
         STOUT,
         SOUR,
@@ -17,11 +18,12 @@ public class alcoholBeverage {
     /*instance variables*/
     private UUID mId;
     private String description;
-    private double alcPrice;
-    private double alcContent;
+    private String alcPrice;
+    private String alcContent;
     private String manufacturerOrigin;
     private alcType style;
     private String name;
+    private String fileName;
 
     /**
      * constructor
@@ -32,18 +34,22 @@ public class alcoholBeverage {
 
         description = " ";
         manufacturerOrigin = "";
-        alcPrice = 0.00;
-        alcContent = 0.0;
+        alcPrice = " ";
+        alcContent = " ";
 
-        style = alcType.WHISKEY;
-        name = "";
+        style = alcType.NONE;
+        name = " ";
+        fileName = " ";
     }
+
+
 
 
     /**
      * Getters
      * @return
      */
+
     public UUID getId() {
         return mId;
     }
@@ -56,11 +62,11 @@ public class alcoholBeverage {
         return manufacturerOrigin;
     }
 
-    public double getAlcContent() {
+    public String getAlcContent() {
         return alcContent;
     }
 
-    public double getAlcPrice() {
+    public String getAlcPrice() {
         return alcPrice;
     }
 
@@ -72,9 +78,14 @@ public class alcoholBeverage {
         return name;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
     /**
      * Setters
      */
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -83,11 +94,11 @@ public class alcoholBeverage {
         this.manufacturerOrigin = manufacturerOrigin;
     }
 
-    public void setAlcPrice(double alcPrice) {
+    public void setAlcPrice(String alcPrice) {
         this.alcPrice = alcPrice;
     }
 
-    public void setAlcContent(double alcContent) {
+    public void setAlcContent(String alcContent) {
         this.alcContent = alcContent;
     }
 
@@ -97,5 +108,9 @@ public class alcoholBeverage {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 }

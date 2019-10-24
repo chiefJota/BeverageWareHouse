@@ -1,7 +1,7 @@
 package com.jthissel.beveragewarehouse;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.os.Bundle;
 using fragments master-detail interface, with fragments
 it's OK to initialize the app with hardcoded, initial data**/
 
-public abstract class singleFragmentActivity extends FragmentActivity {
+public abstract class singleFragmentActivity extends AppCompatActivity {
 
     public abstract Fragment createFragment();
 

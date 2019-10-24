@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Beverage-Warehouse</string>
     <string name="alcohol_title_label">Alcohol</string>
+    <string name="heady_topper">Heady Topper</string>
+    <string name="whistle_pig">Whistle Pig</string>
 </resources>

@@ -1,44 +1,49 @@
-AlcoholicBeverage (aka crime)
-    - getters and setters for everything (basic skeleton)
-    - price
-    - description
-    - alcType (make it an enum)
-    - alcContent
-    - manufacturerOrigin
+==========================================================================
+Detail view Classes:
 
-AlcoholBeverageActivity (aka crimeActivity)
-    - createFragment
+    AlcoholicBeverage (aka crime)
+        - getters and setters for everything (basic skeleton)
+        - price
+        - description
+        - alcType (make it an enum)
+        - alcContent
+        - manufacturerOrigin
 
-AlcoholBeverageFragment (aka crimeFragment)
-    - AlcoholicBeverage Fragment
-    - onCreate
-    - onCreateView
+    AlcoholBeverageActivity (aka crimeActivity)
+        - createFragment
+
+    AlcoholBeverageFragment (aka crimeFragment)
+        - AlcoholicBeverage Fragment
+        - onCreate
+        - onCreateView
+
+=========================================================================
+Recycler List Classes:
+
+    AlcoholWareHouse (aka crimeLab)
+       - arraylist of alcoholic beverages
+       - AlcoholWarehouse get
+       - AlcoholWareHouse
+       - get AlcoholBeverages
+       - get AlcoholicBeverage
 
 
-AlcoholWareHouse (aka crimeLab)
-   - arraylist of alcoholic beverages
-   - AlcoholWarehouse get
-   - AlcoholWareHouse
-   - get AlcoholBeverages
-   - get AlcoholicBeverage
+    AlcoholWareHouseActivity (aka crimeListActivity)
+        - createFragment
 
+    AlcoholWareHouseFragment (aka crimeListFragment)
+        -onCreateView
+        -updateUI
+        -beverageHolder (class)
+        -beverageHolder (constructor)
+        -bindBeverage
+        -onClick
+        -alcBeverageAdapter (class)
+        -alcBeverageAdapter (constructor)
+        -onCreateViewHolder
+        -getItemCount
 
-AlcoholWareHouseActivity (aka crimeListActivity)
-    - createFragment
-
-AlcoholWareHouseFragment (aka crimeListFragment)
-    -onCreateView
-    -updateUI
-    -beverageHolder (class)
-    -beverageHolder (constructor)
-    -bindBeverage
-    -onClick
-    -alcBeverageAdapter (class)
-    -alcBeverageAdapter (constructor)
-    -onCreateViewHolder
-    -getItemCount
-
-SingleFragmentActivity
-    - onCreate
+    SingleFragmentActivity
+        - onCreate
 
 
