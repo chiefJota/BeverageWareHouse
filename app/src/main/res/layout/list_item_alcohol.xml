@@ -7,7 +7,6 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
-
     <ImageView
         android:id="@+id/alcohol_image"
         android:layout_width="65dp"
@@ -21,7 +20,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textAllCaps="true"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="24dp" />
+        android:fontFamily="@font/luckiest_guy"
+        android:textColor= "#00611F"
+        android:textSize="24sp" />
 
 </LinearLayout>
