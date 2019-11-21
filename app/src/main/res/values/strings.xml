@@ -4,4 +4,6 @@
     <string name="heady_topper">Heady Topper</string>
     <string name="whistle_pig">Whistle Pig</string>
     <string name="update_stock">Updating Stock!</string>
+    <string name="new_beverage">New Beverage</string>
+    <string name="hide_subtitle">Hide Subtitle</string>
 </resources>

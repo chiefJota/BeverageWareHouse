@@ -4,24 +4,12 @@ import java.util.UUID;
 
 public class alcoholBeverage {
 
-    protected enum alcType{
-        NONE,
-        IPA,
-        STOUT,
-        SOUR,
-        PORTER,
-        WHISKEY,
-        RUM,
-        GIN;
-    }
-
     /*instance variables*/
     private UUID mId;
     private String description;
     private String alcPrice;
     private String alcContent;
     private String manufacturerOrigin;
-    private alcType style;
     private String name;
     private String fileName;
 
@@ -30,16 +18,18 @@ public class alcoholBeverage {
      */
     public alcoholBeverage(){
         //generate unique identifier
-        mId = UUID.randomUUID();
+        this(UUID.randomUUID());
 
         description = " ";
         manufacturerOrigin = "";
         alcPrice = " ";
         alcContent = " ";
-
-        style = alcType.NONE;
         name = " ";
         fileName = " ";
+    }
+
+    public alcoholBeverage(UUID id){
+        mId = id;
     }
 
 
@@ -70,10 +60,6 @@ public class alcoholBeverage {
         return alcPrice;
     }
 
-    public alcType getalcType(){
-        return style;
-    }
-
     public String getName() {
         return name;
     }
@@ -102,9 +88,6 @@ public class alcoholBeverage {
         this.alcContent = alcContent;
     }
 
-    public void setAlcType(alcType alcType) {
-        this.style = alcType;
-    }
 
     public void setName(String name) {
         this.name = name;

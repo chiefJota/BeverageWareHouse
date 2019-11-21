@@ -18,7 +18,7 @@ Detail view Classes:
         - onCreateView
 
 =========================================================================
-Recycler List Classes:
+Recycler View Classes:
 
     AlcoholWareHouse (aka crimeLab)
        - arraylist of alcoholic beverages
@@ -46,4 +46,12 @@ Recycler List Classes:
     SingleFragmentActivity
         - onCreate
 
+=========================================================================
+New Beverage Classes
+
+    -beveragePagerFragment
+        -
+
+    -alcoholBeveragePager
+        -
 

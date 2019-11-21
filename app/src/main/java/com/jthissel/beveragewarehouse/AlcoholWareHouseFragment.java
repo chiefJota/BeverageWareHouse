@@ -1,16 +1,18 @@
 package com.jthissel.beveragewarehouse;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
+
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.fragment.app.Fragment;
 
@@ -25,7 +27,12 @@ public class AlcoholWareHouseFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private beverageAdapter mBeverageAdapter;
     private Drawable drawable;
-    //privat DividerItemDecoration mDividerItemDecoration;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -38,11 +45,42 @@ public class AlcoholWareHouseFragment extends Fragment {
         return view;
     }
 
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+        super.onCreateOptionsMenu(menu,inflater);
+        inflater.inflate(R.menu.fragment_alcohol_warehouse_list, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem){
+        switch(menuItem.getItemId()){
+            case R.id.new_alcohol_beverage:
+                alcoholBeverage alcoholBeverage = new alcoholBeverage();
+                AlcoholWareHouse.get(getActivity()).addAlcoholBeverage(alcoholBeverage);
+                //create intent to new beverage activity
+                Intent intent = newBeverageActivity.newIntent(getActivity(), alcoholBeverage.getId());
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(menuItem);
+        }
+    }
+
     private void updateUI(){
         AlcoholWareHouse wareHouse = AlcoholWareHouse.get(getActivity());
         List<alcoholBeverage> beverageList = wareHouse.getAlcBeverages();
-        mBeverageAdapter = new beverageAdapter(beverageList);
-        mRecyclerView.setAdapter(mBeverageAdapter);
+
+        if(mBeverageAdapter == null){
+            mBeverageAdapter = new beverageAdapter(beverageList);
+            mRecyclerView.setAdapter(mBeverageAdapter);
+        }
+        else{
+            mBeverageAdapter.setBeverages(beverageList);
+            mBeverageAdapter.notifyDataSetChanged();
+        }
+
     }
 
     private class beverageHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -78,9 +116,14 @@ public class AlcoholWareHouseFragment extends Fragment {
 
         @Override
         public void onClick(View v){
-            Toast.makeText(getActivity(), mBeverage.getName() + " selected!", Toast.LENGTH_SHORT).show();
+            int pos = getAdapterPosition();
             Intent intent = AlcoholBeverageActivity.newIntent(getActivity(),mBeverage.getId());
             startActivity(intent);
+            notifyItemChanged(pos);
+        }
+
+        private void notifyItemChanged(int pos){
+            mBeverageAdapter.notifyItemChanged(pos);
         }
     }
 
@@ -107,7 +150,13 @@ public class AlcoholWareHouseFragment extends Fragment {
         public int getItemCount(){
             return mBeverages.size();
         }
+
+        public void setBeverages(List<alcoholBeverage> beverageList){
+            mBeverages = beverageList;
+        }
     }
+
+
 
 }
 

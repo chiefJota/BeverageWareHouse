@@ -7,12 +7,12 @@ import androidx.fragment.app.Fragment;
 
 import java.util.UUID;
 
+public class newBeverageActivity extends singleFragmentActivity {
 
-public class AlcoholBeverageActivity extends singleFragmentActivity {
     private final static String EXTRA_BEVERAGE_ID = "com.jthissel.beveragewarehouse.position_id";
 
-    public static Intent newIntent(Context context, UUID id){
-        Intent intent = new Intent(context, AlcoholBeverageActivity.class);
+    public static Intent newIntent(Context context, UUID id) {
+        Intent intent = new Intent(context, newBeverageActivity.class);
         intent.putExtra(EXTRA_BEVERAGE_ID, id);
         return intent;
 
@@ -21,6 +21,9 @@ public class AlcoholBeverageActivity extends singleFragmentActivity {
     @Override
     public Fragment createFragment(){
         UUID position = (UUID) getIntent().getSerializableExtra(EXTRA_BEVERAGE_ID);
-        return AlcoholBeverageFragment.newInstance(position);
+        return newBeverageFragment.newInstance(position);
     }
+
 }
+
+
