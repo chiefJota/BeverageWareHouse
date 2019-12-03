@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 
 import androidx.annotation.Nullable;
@@ -30,7 +29,7 @@ public class newBeverageFragment extends Fragment {
     private Button mSubmit;
 
     private Drawable drawable;
-    private ImageView mAlcBottle;
+
 
     private static final String POSITION = "position_id";
     private static final String NEWDRINK = "new_beverage_image";
@@ -71,7 +70,7 @@ public class newBeverageFragment extends Fragment {
 
 
         View view = inflater.inflate(R.layout.new_beverage, container, false);
-//        mAlcBottle = view.findViewById(R.id.alcohol_image);
+
         mAlcoholBeverage.setFileName(NEWDRINK);
 
         mSubmit = view.findViewById(R.id.submit);

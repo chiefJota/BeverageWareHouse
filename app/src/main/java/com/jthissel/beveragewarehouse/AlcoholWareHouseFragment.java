@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,6 +28,7 @@ public class AlcoholWareHouseFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private beverageAdapter mBeverageAdapter;
     private Drawable drawable;
+    private boolean mSubtitleVisible;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -50,7 +52,15 @@ public class AlcoholWareHouseFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
         super.onCreateOptionsMenu(menu,inflater);
         inflater.inflate(R.menu.fragment_alcohol_warehouse_list, menu);
-    }
+
+        MenuItem subtitleItem = menu.findItem(R.id.show_subtitle);
+        if(mSubtitleVisible) {
+            subtitleItem.setTitle(R.string.hide_subtitle);
+        }
+        else{
+            subtitleItem.setTitle(R.string.show_subtitle);
+        }
+        }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem){
@@ -59,13 +69,33 @@ public class AlcoholWareHouseFragment extends Fragment {
                 alcoholBeverage alcoholBeverage = new alcoholBeverage();
                 AlcoholWareHouse.get(getActivity()).addAlcoholBeverage(alcoholBeverage);
                 //create intent to new beverage activity
+                //TODO: Don't add a beverage if the back button is clicked only on submit
                 Intent intent = newBeverageActivity.newIntent(getActivity(), alcoholBeverage.getId());
                 startActivity(intent);
+                return true;
+
+            case R.id.show_subtitle:
+                mSubtitleVisible = !mSubtitleVisible;
+                getActivity().invalidateOptionsMenu();
+                updateSubtitle();
                 return true;
 
             default:
                 return super.onOptionsItemSelected(menuItem);
         }
+    }
+
+    private void updateSubtitle(){
+        AlcoholWareHouse wareHouse = AlcoholWareHouse.get(getActivity());
+        int beverageStock = wareHouse.getAlcBeverages().size();
+        String subtitle = getString(R.string.subtitle_format, beverageStock);
+
+        if(!mSubtitleVisible){
+            subtitle = null;
+        }
+
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.getSupportActionBar().setSubtitle(subtitle);
     }
 
     private void updateUI(){
@@ -80,6 +110,8 @@ public class AlcoholWareHouseFragment extends Fragment {
             mBeverageAdapter.setBeverages(beverageList);
             mBeverageAdapter.notifyDataSetChanged();
         }
+
+        updateSubtitle();
 
     }
 
@@ -116,6 +148,7 @@ public class AlcoholWareHouseFragment extends Fragment {
 
         @Override
         public void onClick(View v){
+
             int pos = getAdapterPosition();
             Intent intent = AlcoholBeverageActivity.newIntent(getActivity(),mBeverage.getId());
             startActivity(intent);

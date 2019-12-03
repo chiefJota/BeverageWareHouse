@@ -22,9 +22,11 @@
             android:label="@string/app_name">
         </activity>
         <activity android:name=".AlcoholBeverageActivity"
+            android:parentActivityName=".AlcoholWareHouseActivity"
             android:label="@string/app_name">
         </activity>
         <activity android:name=".newBeverageActivity"
+            android:parentActivityName=".AlcoholWareHouseActivity"
             android:label="@string/app_name">
         </activity>
 
